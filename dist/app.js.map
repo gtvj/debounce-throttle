@@ -1,1 +1,0 @@
-{"version":3,"sources":["../src/app.js"],"names":["name","time"],"mappings":";;AAAA;AACA,IAAIA,OAAO,KAAX;AAAA,IAAkBC,OAAO,OAAzB;AACA,WAASD,IAAT,sBAA8BC,IAA9B","file":"app.js","sourcesContent":["// Interpolate variable bindings\nvar name = \"Bob\", time = \"today\";\n`Hello ${name}, how are you ${time}?`;\n"]}
