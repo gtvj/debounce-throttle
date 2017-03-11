@@ -28,6 +28,6 @@ function debounce(call_back, wait, this_argument) {
     };
 }
 
-window.addEventListener("scroll", debounce(function () {
+window.addEventListener("scroll", debounce(() =>{
     console.log("I am being debounced!");
 }, 200));

@@ -13,7 +13,7 @@
  */
 function throttle(call_back, wait, this_argument) {
 
-    var prevTime, timer;
+    var last_call_timestamp, timer;
 
     return function () {
         for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
@@ -23,20 +23,20 @@ function throttle(call_back, wait, this_argument) {
         var context = this_argument || this,
             now = +new Date();
 
-        if (!prevTime || now >= prevTime + wait) {
-            prevTime = now;
+        if (!last_call_timestamp || now >= last_call_timestamp + wait) {
+            last_call_timestamp = now;
             return call_back.apply(context, args);
         }
 
         clearTimeout(timer);
 
         timer = setTimeout(function () {
-            prevTime = now;
+            last_call_timestamp = now;
             call_back.apply(context, args);
         }, wait);
     };
 }
 
-window.addEventListener("mousemove", throttle(function () {
+window.addEventListener("scroll", throttle(function () {
     console.log("I am being throttled!");
 }, 200));
