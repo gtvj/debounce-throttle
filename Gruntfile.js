@@ -4,7 +4,7 @@ module.exports = function (grunt) {
     grunt.initConfig({
         pkg: grunt.file.readJSON('package.json'),
         eslint: {
-            target: "src/debounce.js",
+            target: "src/*.js",
             options: {
                 configFile: 'conf/eslint.json'
             },
@@ -16,6 +16,7 @@ module.exports = function (grunt) {
             dist: {
                 files: {
                     "dist/debounce.js": "src/debounce.js",
+                    "dist/throttle.js": "src/throttle.js",
                 }
             }
         },
@@ -24,7 +25,7 @@ module.exports = function (grunt) {
         },
 	watch: {
 	  scripts: {
-	    files: ['src/debounce.js', 'tests/test.js'],
+	    files: ['src/*.js', 'tests/test.js'],
 	    tasks: ['default'],
 	    options: {
 	      spawn: false,
